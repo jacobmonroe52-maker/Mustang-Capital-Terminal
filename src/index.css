@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-green-950 text-cream-100 antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    @apply text-cream-200;
+  }
+  *:focus-visible {
+    @apply outline-none ring-2 ring-brass-500 ring-offset-2 ring-offset-green-950;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-flip,
+  .card-flip * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .animate-pulse {
+    animation: none !important;
+  }
+}
