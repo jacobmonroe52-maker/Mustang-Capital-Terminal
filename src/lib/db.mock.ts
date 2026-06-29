@@ -2,11 +2,11 @@ import { v4 as uuid } from 'uuid';
 import type { DbClient } from './db';
 import type {
   Profile, Holding, NavPoint, Pitch, PitchVote, ResearchNote,
-  Flashcard, FlashcardProgress, DcfScenario, FundSettings, CardState, VoteChoice,
+  Flashcard, FlashcardProgress, DcfScenario, FundSettings,
 } from '../types';
 import {
   SEED_PROFILES, SEED_HOLDINGS, SEED_NAV_HISTORY, SEED_PITCHES, SEED_VOTES,
-  SEED_NOTES, SEED_FLASHCARDS, SEED_FUND_SETTINGS, OFFICER_ID,
+  SEED_NOTES, SEED_FLASHCARDS, SEED_FUND_SETTINGS,
 } from './seed';
 
 const KEY = (t: string) => `mt_${t}`;
@@ -99,7 +99,7 @@ export function createMockClient(): DbClient {
       if (h.id) {
         const idx = holdings.findIndex((x) => x.id === h.id);
         if (idx >= 0) {
-          holdings[idx] = { ...h, book_value, updated_at: now(), created_at: holdings[idx].created_at };
+          holdings[idx] = { ...h, id: holdings[idx].id, book_value, updated_at: now(), created_at: holdings[idx].created_at };
           save('holdings', holdings);
           return holdings[idx];
         }

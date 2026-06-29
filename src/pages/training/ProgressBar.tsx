@@ -1,5 +1,4 @@
 import type { Flashcard, FlashcardProgress } from '../../types';
-import { fmtPct } from '../../lib/format';
 
 interface Props {
   cards: Flashcard[];
@@ -29,7 +28,6 @@ export function ProgressBar({ cards, progress, activeCategory, onSelectCategory 
         const total = catCards.length;
         const knownPct = total > 0 ? known / total : 0;
         const reviewPct = total > 0 ? review / total : 0;
-        const unseenPct = 1 - knownPct - reviewPct;
 
         return (
           <button

@@ -216,7 +216,7 @@ export function DCF() {
                   <YAxis tick={{ fill: '#C9BD96', fontSize: 10, fontFamily: 'IBM Plex Mono' }} axisLine={false} tickLine={false} tickFormatter={(v) => `$${v}M`} />
                   <Tooltip
                     contentStyle={{ backgroundColor: '#14352A', border: '1px solid #235541', borderRadius: 6, fontFamily: 'IBM Plex Mono', fontSize: 12 }}
-                    formatter={(v: number) => [`$${v.toFixed(1)}M`, 'FCF']}
+                    formatter={(v: unknown) => [typeof v === 'number' ? `$${v.toFixed(1)}M` : '$0M', 'FCF']}
                     labelStyle={{ color: '#E7DEC4' }}
                   />
                   <Bar dataKey="fcf" fill="#2F6B52" radius={[3, 3, 0, 0]} />

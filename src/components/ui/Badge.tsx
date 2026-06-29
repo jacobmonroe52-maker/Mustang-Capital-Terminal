@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react';
+import type { HTMLAttributes } from 'react';
 
 type BadgeVariant = 'default' | 'buy' | 'sell' | 'hold' | 'pending' | 'approved' | 'rejected' | 'sector';
 

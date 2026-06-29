@@ -1,4 +1,4 @@
-import { LayoutDashboard, TrendingUp, Calculator } from 'lucide-react';
+import { LayoutDashboard, TrendingUp } from 'lucide-react';
 import { Button } from '../components/ui/Button';
 import { Card } from '../components/ui/Card';
 import { Badge } from '../components/ui/Badge';

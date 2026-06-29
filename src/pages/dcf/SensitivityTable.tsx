@@ -7,7 +7,7 @@ interface Props {
   baseValue: number;
 }
 
-export function SensitivityTable({ inputs, baseValue }: Props) {
+export function SensitivityTable({ inputs, baseValue: _baseValue }: Props) {
   const waccSteps = [-0.02, -0.01, 0, 0.01, 0.02];
   const gSteps = [0.01, 0.005, 0, -0.005, -0.01];
   const table = buildSensitivityTable(inputs);

@@ -15,7 +15,7 @@ interface PortfolioState {
 
   loadAll: () => Promise<void>;
   loadPrices: () => Promise<void>;
-  upsertHolding: (h: Omit<Holding, 'book_value' | 'created_at' | 'updated_at'> & { id?: string }) => Promise<void>;
+  upsertHolding: (h: Omit<Holding, 'id' | 'book_value' | 'created_at' | 'updated_at'> & { id?: string }) => Promise<void>;
   deleteHolding: (id: string) => Promise<void>;
   setAum: (aum: number) => void;
 }

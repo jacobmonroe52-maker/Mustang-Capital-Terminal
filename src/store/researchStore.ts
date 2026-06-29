@@ -7,7 +7,7 @@ interface ResearchState {
   isLoading: boolean;
   query: string;
   loadNotes: (q?: string) => Promise<void>;
-  upsertNote: (n: Omit<ResearchNote, 'created_at' | 'updated_at'> & { id?: string }) => Promise<ResearchNote>;
+  upsertNote: (n: Omit<ResearchNote, 'id' | 'created_at' | 'updated_at'> & { id?: string }) => Promise<ResearchNote>;
   deleteNote: (id: string) => Promise<void>;
   setQuery: (q: string) => void;
 }

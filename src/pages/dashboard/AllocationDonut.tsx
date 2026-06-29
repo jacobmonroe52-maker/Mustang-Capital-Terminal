@@ -48,8 +48,8 @@ export function AllocationDonut({ holdings, cashBalance, totalAum }: Props) {
               fontFamily: 'IBM Plex Mono, monospace',
               fontSize: 12,
             }}
-            formatter={(value: number, _name: string, entry: { payload: { weight: number } }) => [
-              `${fmtPct(entry.payload.weight)}`,
+            formatter={(_value: unknown, _name: unknown, entry: { payload?: { weight: number } }) => [
+              fmtPct(entry.payload?.weight ?? 0),
               undefined,
             ]}
             labelStyle={{ color: '#E7DEC4' }}

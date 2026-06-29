@@ -13,7 +13,7 @@ interface PitchState {
   deleteVote: (pitchId: string, userId: string) => Promise<void>;
 }
 
-export const usePitchStore = create<PitchState>((set, get) => ({
+export const usePitchStore = create<PitchState>((set) => ({
   pitches: [],
   votes: [],
   isLoading: false,

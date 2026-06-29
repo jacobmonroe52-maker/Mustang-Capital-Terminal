@@ -1,6 +1,5 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 import type { EnrichedHolding } from '../../types';
-import { fmtPct } from '../../lib/format';
 
 interface Props {
   holdings: EnrichedHolding[];
@@ -37,7 +36,7 @@ export function AllocationBarChart({ holdings }: Props) {
             fontFamily: 'IBM Plex Mono, monospace',
             fontSize: 12,
           }}
-          formatter={(value: number, name: string) => [`${value.toFixed(1)}%`, name === 'actual' ? 'Actual' : 'Target']}
+          formatter={(value: unknown, name: unknown) => [typeof value === 'number' ? `${value.toFixed(1)}%` : '0%', name === 'actual' ? 'Actual' : 'Target']}
           labelStyle={{ color: '#E7DEC4' }}
         />
         <Legend

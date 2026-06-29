@@ -14,7 +14,7 @@ export interface DbClient {
 
   // Holdings
   getHoldings(): Promise<Holding[]>;
-  upsertHolding(h: Omit<Holding, 'book_value' | 'created_at' | 'updated_at'> & { id?: string }): Promise<Holding>;
+  upsertHolding(h: Omit<Holding, 'id' | 'book_value' | 'created_at' | 'updated_at'> & { id?: string }): Promise<Holding>;
   deleteHolding(id: string): Promise<void>;
 
   // NAV
@@ -35,7 +35,7 @@ export interface DbClient {
   // Research
   getNotes(query?: string): Promise<ResearchNote[]>;
   getNote(id: string): Promise<ResearchNote | null>;
-  upsertNote(n: Omit<ResearchNote, 'created_at' | 'updated_at'> & { id?: string }): Promise<ResearchNote>;
+  upsertNote(n: Omit<ResearchNote, 'id' | 'created_at' | 'updated_at'> & { id?: string }): Promise<ResearchNote>;
   deleteNote(id: string): Promise<void>;
 
   // Flashcards
@@ -75,7 +75,7 @@ export const db: DbClient = new Proxy({} as DbClient, {
   get(_target, prop) {
     return async (...args: unknown[]) => {
       const client = await loadDb();
-      return (client as Record<string, unknown>)[prop as string](...args);
+      return (client as unknown as Record<string, (...args: unknown[]) => unknown>)[prop as string](...args);
     };
   },
 });

@@ -8,7 +8,6 @@ import { FlashcardView } from './Flashcard';
 import { ProgressBar } from './ProgressBar';
 import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
-import { Input } from '../../components/ui/Input';
 import { Modal } from '../../components/ui/Modal';
 import { EmptyState } from '../../components/shared/EmptyState';
 

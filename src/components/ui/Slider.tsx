@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from 'react';
+import type { InputHTMLAttributes } from 'react';
 
 interface SliderProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {
   label?: string;

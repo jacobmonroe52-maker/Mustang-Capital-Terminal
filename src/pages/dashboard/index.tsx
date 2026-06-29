@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { TrendingUp, Briefcase, PieChart, AlertTriangle, Clock } from 'lucide-react';
 import { usePortfolioStore, selectEnrichedHoldings } from '../../store/portfolioStore';
 import { MetricCard } from '../../components/shared/MetricCard';
@@ -15,11 +14,6 @@ import { fmtCompactUSD, fmtPct, fmtRelativeTime, gainLossClass } from '../../lib
 export function Dashboard() {
   const store = usePortfolioStore();
   const enriched = usePortfolioStore(selectEnrichedHoldings);
-  const location = useLocation();
-  const [prefilledHolding] = useState<{ ticker: string; company_name: string; sector: string } | null>(
-    (location.state as { addHolding?: { ticker: string; company_name: string; sector: string } } | null)?.addHolding ?? null
-  );
-
   useEffect(() => {
     store.loadAll();
   }, []);

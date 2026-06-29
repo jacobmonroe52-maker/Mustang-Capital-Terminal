@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
-import { Plus, BookOpen, Search, X, ArrowLeft, Pencil, Trash2 } from 'lucide-react';
+import { Plus, BookOpen, Search, X, ArrowLeft, Trash2 } from 'lucide-react';
 import type { ResearchNote } from '../../types';
 import { useResearchStore } from '../../store/researchStore';
 import { useAuthStore } from '../../store/authStore';
@@ -8,7 +8,7 @@ import { Button } from '../../components/ui/Button';
 import { Card } from '../../components/ui/Card';
 import { EmptyState } from '../../components/shared/EmptyState';
 import { Badge } from '../../components/ui/Badge';
-import { fmtDate, fmtRelativeTime } from '../../lib/format';
+import { fmtRelativeTime } from '../../lib/format';
 
 function renderMarkdown(text: string): string {
   return text
@@ -66,7 +66,7 @@ function NoteEditor({ note, onSave, onBack }: { note: Partial<ResearchNote>; onS
   const [preview, setPreview] = useState(false);
   const [saving, setSaving] = useState(false);
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved'>('idle');
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   const triggerSave = useCallback(async () => {
     setSaveStatus('saving');

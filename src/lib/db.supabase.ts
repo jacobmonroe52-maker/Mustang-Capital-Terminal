@@ -2,7 +2,7 @@ import { supabase } from './supabase';
 import type { DbClient } from './db';
 import type {
   Profile, Holding, NavPoint, Pitch, PitchVote, ResearchNote,
-  Flashcard, FlashcardProgress, DcfScenario, FundSettings, CardState, VoteChoice,
+  Flashcard, FlashcardProgress, DcfScenario, FundSettings,
 } from '../types';
 
 export function createSupabaseClient(): DbClient {
